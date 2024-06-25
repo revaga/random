@@ -1,22 +1,26 @@
 <!DOCTYPE html>
-<script src="https://cdn.tailwindcss.com"></script>
-<body class="website" id="website">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head><body class="website" id="website">
     <button> button </button>
 </body>
+<script src="https://cdn.tailwindcss.com"></script>
+
 
 <script>
     function addbutton(){
-        random  = Math.random()
+        random  = Math.floor(Math.random() * 700);
         console.log("adding buttons randomly")
         document.querySelector(".quote").innerHTML = "loading...."
         fetch("https://xkcd.com/"+random+"/info.0.json")
         .then(r => r.json())
         .then(data =>{
             console.log(data)
-            document.querySelector(".website").innerHTML = data.content
             let parent = document.getElementById("website");
 
             var randombutton = document.createElement("BUTTON");
+            randombutton.innerHTML = data.safe_title
             parent.appendChild(randombutton)
 
             
