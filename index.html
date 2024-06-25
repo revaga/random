@@ -3,29 +3,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head><body class="website" id="website">
-    <button> button </button>
+    <p class="title"></p>
+    <button style="border: 4px; border-color: blueviolet; background-color: antiquewhite;" onclick="addbutton()"> button </button>
 </body>
-<script src="https://cdn.tailwindcss.com"></script>
 
 
 <script>
     function addbutton(){
         random  = Math.floor(Math.random() * 700);
+        let parent = document.getElementById("website");
+            var randomnum = document.createElement("p")
+            randomnum.innerHTML = random
+            randomnum.style.width = "20px"
+            randomnum.style.borderRadius = "10px"
+            randomnum.style.backgroundColor = "lightblue"
+            randomnum.style.margin = "10px"
+            parent.appendChild(randomnum)
         console.log("adding buttons randomly")
-        document.querySelector(".quote").innerHTML = "loading...."
-        fetch("https://xkcd.com/"+random+"/info.0.json")
-        .then(r => r.json())
-        .then(data =>{
-            console.log(data)
-            let parent = document.getElementById("website");
-
-            var randombutton = document.createElement("BUTTON");
-            randombutton.innerHTML = data.safe_title
-            parent.appendChild(randombutton)
-
-            
-        
-    })
 }
 </script>
 </html>
