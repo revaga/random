@@ -16,27 +16,13 @@
         random  = Math.floor(Math.random() * 700);
         let parent = document.getElementById("website");
             var randomnum = document.createElement("button")
-            randomnum.innerHTML = random
+            
             randomnum.style.height = "20px"
             randomnum.style.borderRadius = "10px"
             randomnum.style.backgroundColor = "lightblue"
             randomnum.style.margin = "10px"
-            randomnum.onclick = clickablebutton()
-            parent.appendChild(randomnum)
+            //randomnum.onclick = clickablebutton()
         //console.log("adding buttons randomly")
-
-    function clickablebutton(){
-        random  = Math.floor(Math.random() * 700);
-        let parent = document.getElementById("website");
-            var randomnum = document.createElement("button")
-            randomnum.innerHTML = random
-            randomnum.style.height = "20px"
-            randomnum.style.borderRadius = "10px"
-            randomnum.style.backgroundColor = "lightblue"
-            randomnum.style.margin = "10px"
-            parent.appendChild(randomnum)
-        //console.log("adding buttons randomly")
-    }
 
     const flavortext =  document.getElementById("flavortext")
     fetch("https://api.airtable.com/v0/appAHDtZ71geDm3ny/tbl3f9zWzLBb4CvaG", 
@@ -52,6 +38,9 @@
     })
     let num = Math.floor(Math.random() * records.length)
     console.log(records[num])
+    randomnum.innerHTML = records[num]
+    parent.appendChild(randomnum)
+
 })
 
 }
