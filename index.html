@@ -23,7 +23,7 @@
             randomnum.style.margin = "10px"
             randomnum.onclick = clickablebutton()
             parent.appendChild(randomnum)
-        console.log("adding buttons randomly")
+        //console.log("adding buttons randomly")
 
     function clickablebutton(){
         random  = Math.floor(Math.random() * 700);
@@ -35,7 +35,7 @@
             randomnum.style.backgroundColor = "lightblue"
             randomnum.style.margin = "10px"
             parent.appendChild(randomnum)
-        console.log("adding buttons randomly")
+        //console.log("adding buttons randomly")
     }
 
     const flavortext =  document.getElementById("flavortext")
@@ -45,13 +45,13 @@
 
     }).then(res=> res.json()).then(json => {
     let records = json.records.map(previousRecord =>{
-        //return previousRecord.fields["Flavor Text"];       
-        let num = Math.floor(Math.random() * records.length)
-        return previousRecord.fields["Flavor Text"][num]
+        return previousRecord.fields["Flavor Text"];       
+       
 
 
     })
-    console.log(records)
+    let num = Math.floor(Math.random() * records.length)
+    console.log(records[num])
 })
 
 }
