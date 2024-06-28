@@ -25,9 +25,8 @@
             newbutton.style.backgroundColor = "rgb("+ red+", "+ green +","+ blue+", "+alpha+")"
             newbutton.style.margin = "10px"
             newbutton.style.position = "absolute"
-            newbutton.style.left = ""
-            newbutton.style.zIndex = ""
-            newbutton.style.top = ""
+            newbutton.style.left = `${Math.random() * window.innerWidth}px`
+            newbutton.style.top = `${Math.random() * window.innerHeight}px`
 
     fetch("https://api.airtable.com/v0/appAHDtZ71geDm3ny/tbl3f9zWzLBb4CvaG", 
     {headers:
