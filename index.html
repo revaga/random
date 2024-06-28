@@ -4,7 +4,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head><body class="website" id="website">
     <p class="title"></p>
-    <button style="border: 4px; border-color: blueviolet; background-color: antiquewhite;" onclick="addbutton()"> button </button>
+    <button style="border: 4px; border-color: blueviolet; background-color: antiquewhite;" onclick=addbutton()> button </button>
+
+    <div class="flavortext"> hiiii </div>
+
 </body>
 
 
@@ -18,8 +21,39 @@
             randomnum.style.borderRadius = "10px"
             randomnum.style.backgroundColor = "lightblue"
             randomnum.style.margin = "10px"
+            randomnum.onclick = clickablebutton()
             parent.appendChild(randomnum)
         console.log("adding buttons randomly")
+
+    function clickablebutton(){
+        random  = Math.floor(Math.random() * 700);
+        let parent = document.getElementById("website");
+            var randomnum = document.createElement("button")
+            randomnum.innerHTML = random
+            randomnum.style.height = "20px"
+            randomnum.style.borderRadius = "10px"
+            randomnum.style.backgroundColor = "lightblue"
+            randomnum.style.margin = "10px"
+            parent.appendChild(randomnum)
+        console.log("adding buttons randomly")
+    }
+
+    const flavortext =  document.getElementById("flavortext")
+    fetch("https://api.airtable.com/v0/appAHDtZ71geDm3ny/tbl3f9zWzLBb4CvaG", 
+    {headers:
+        {Authorization: "Bearer patAnH3HHgita5CKB.c17a14a652afca2251342d9cd838b29b6882678aaca9df2527012134203698c8"}
+
+    }).then(res=> res.json()).then(json => {
+    let records = json.records.map(previousRecord =>{
+        //return previousRecord.fields["Flavor Text"];       
+        let num = Math.floor(Math.random() * records.length)
+        return previousRecord.fields["Flavor Text"][num]
+
+
+    })
+    console.log(records)
+})
+
 }
 </script>
 </html>
