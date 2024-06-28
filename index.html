@@ -13,14 +13,21 @@
     function addbutton(){
         random  = Math.floor(Math.random() * 700);
         let parent = document.getElementById("website");
-            var randomnum = document.createElement("button")
+            var newbutton = document.createElement("button")
             
-            randomnum.style.height = "20px"
-            randomnum.style.borderRadius = "10px"
-            randomnum.style.backgroundColor = "lightblue"
-            randomnum.style.margin = "10px"
-            //randomnum.onclick = clickablebutton()
-        //console.log("adding buttons randomly")
+            newbutton.style.height = "20px"
+            newbutton.style.borderRadius = "10px"
+            let red = Math.floor(Math.random() * 255)
+            let green = Math.floor(Math.random() * 255)
+            let blue = Math.floor(Math.random() * 255)
+            let alpha = Math.random() * 0.5
+
+            newbutton.style.backgroundColor = "rgb("+ red+", "+ green +","+ blue+", "+alpha+")"
+            newbutton.style.margin = "10px"
+            newbutton.style.position = "absolute"
+            newbutton.style.left = ""
+            newbutton.style.zIndex = ""
+            newbutton.style.top = ""
 
     fetch("https://api.airtable.com/v0/appAHDtZ71geDm3ny/tbl3f9zWzLBb4CvaG", 
     {headers:
@@ -29,14 +36,11 @@
     }).then(res=> res.json()).then(json => {
     let records = json.records.map(previousRecord =>{
         return previousRecord.fields["Flavor Text"];       
-       
-
-
     })
     let num = Math.floor(Math.random() * records.length)
     console.log(records[num])
-    randomnum.innerHTML = records[num]
-    parent.appendChild(randomnum)
+    newbutton.innerHTML = records[num]
+    parent.appendChild(newbutton)
 
 })
 
